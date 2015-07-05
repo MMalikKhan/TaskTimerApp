@@ -1,0 +1,7 @@
+/Users/malikkhan/tasktimer-app/UITests/obj/Debug/.NETFramework,Version=v4.5.AssemblyAttribute.cs
+/Users/malikkhan/tasktimer-app/UITests/bin/Debug/TaskTimer.UnitTests.dll.mdb
+/Users/malikkhan/tasktimer-app/UITests/bin/Debug/TaskTimer.UnitTests.dll
+/Users/malikkhan/tasktimer-app/UITests/obj/Debug/TaskTimer.UnitTests.dll
+/Users/malikkhan/tasktimer-app/UITests/obj/Debug/TaskTimer.UnitTests.dll.mdb
+/Users/malikkhan/tasktimer-app/UITests/bin/Debug/nunit.framework.dll
+/Users/malikkhan/tasktimer-app/UITests/bin/Debug/Xamarin.UITest.dll

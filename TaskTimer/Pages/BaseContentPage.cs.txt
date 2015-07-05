@@ -1,0 +1,20 @@
+﻿using System;
+
+using Xamarin.Forms;
+
+namespace TaskTimer
+{
+	public class BaseContentPage : ContentPage
+	{
+		protected override void OnAppearing ()
+		{
+			base.OnAppearing ();
+
+			if (!App.Instance.IsAuthenticated) {
+				Navigation.PushModalAsync(new LoginPage());
+			}
+		}
+	}
+}
+
+

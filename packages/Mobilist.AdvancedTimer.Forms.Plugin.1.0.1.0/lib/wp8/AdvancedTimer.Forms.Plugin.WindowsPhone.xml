@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AdvancedTimer.Forms.Plugin.WindowsPhone</name>
+    </assembly>
+    <members>
+        <member name="T:AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation">
+            <summary>
+            AdvancedTimer Implementation
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation.Init">
+            <summary>
+            Used for registration with dependency service
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation.initTimer(System.Int32,System.EventHandler,System.Boolean)">
+            <summary>
+            Used for initializing timer and options
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation.startTimer">
+            <summary>
+            Used for starting timer
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation.stopTimer">
+            <summary>
+            Used for stopping timer
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation.isTimerEnabled">
+            <summary>
+            Used for checking timer status
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation.getInterval">
+            <summary>
+            Used for checking timer interval
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.WindowsPhone.AdvancedTimerImplementation.setInterval(System.Int32)">
+            <summary>
+            Used for setting timer interval
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             Padding="0,20,0,0"
+             BackgroundColor="#202022"
+             x:Class="TaskTimer.Features.CreateTask.UsageItems.UsageItemsPage">
+
+  <Grid RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0" ColumnSpacing="0">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="44" />
+      <RowDefinition Height="70" />
+      <RowDefinition Height="*" />
+    </Grid.RowDefinitions>
+
+    <StackLayout  Orientation="Horizontal"  HorizontalOptions="FillAndExpand" Grid.Row="0" Spacing="0">
+      <Grid  HorizontalOptions="FillAndExpand">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition Width="Auto"/>
+          <ColumnDefinition Width="*"/>
+          <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+
+        <StackLayout Grid.Column="0" HorizontalOptions="Start" Padding="0" Orientation="Horizontal" Spacing="0">
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding BackCommand}">
+            </TapGestureRecognizer>
+          </StackLayout.GestureRecognizers>
+          <Image Source="iconback.png" Style="{StaticResource BackIcon}"/>
+          <Label Text="Clients" VerticalOptions="CenterAndExpand" Style="{StaticResource Date}" FontSize="17"/>
+        </StackLayout>
+
+        <StackLayout Grid.Column="1" HorizontalOptions="Center"  Orientation="Horizontal">
+          <Label Text="Item List"  VerticalOptions="Center" TextColor="White" FontFamily="HelveticaNeue-Regular" FontSize="20" />
+        </StackLayout>
+
+        <StackLayout  Grid.Column="2" Orientation="Vertical"  HorizontalOptions="EndAndExpand" Padding="0,0,15,0">
+          <StackLayout.GestureRecognizers>
+            <TapGestureRecognizer Command="{Binding NavigateToSettingsCommand}" />
+          </StackLayout.GestureRecognizers>
+          <Image  Source="iconsettings.png" Style="{StaticResource SettingsIcon}"/>
+        </StackLayout>
+      </Grid>
+    </StackLayout>
+
+    <StackLayout  Grid.Row="1" Orientation="Vertical"  HorizontalOptions="FillAndExpand" BackgroundColor="#7c7c7c">
+      <SearchBar x:Name="SearchBar" SearchCommand="{Binding FilterClients}" TextChanged="SearchBar_OnTextChanged" SearchCommandParameter="{Binding}"  HeightRequest="70"  
+                 HorizontalOptions="FillAndExpand" VerticalOptions="CenterAndExpand" BackgroundColor="#7c7c7c" Placeholder="Search"/>
+      <BoxView Color="#f4a419" HorizontalOptions="Fill" HeightRequest="0.5" />
+    </StackLayout>
+    
+    <ListView x:Name="ItemsListView" ItemTapped="ItemsListView_OnItemTapped" Style="{StaticResource ListViewStyle}" Grid.Row="2" ItemsSource="{Binding UsageItemsList}"
+              HasUnevenRows="True">
+      <ListView.ItemTemplate>
+        <DataTemplate>
+          <ViewCell>
+            <ViewCell.View>
+              <StackLayout Orientation="Horizontal" HeightRequest="40" Padding="15,0">
+                <Label Text="{Binding ItemName}" Style="{StaticResource ClientName}"
+                       VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+              </StackLayout>
+            </ViewCell.View>
+          </ViewCell>
+        </DataTemplate>
+      </ListView.ItemTemplate>
+    </ListView>
+  </Grid>
+</ContentPage>
+
+

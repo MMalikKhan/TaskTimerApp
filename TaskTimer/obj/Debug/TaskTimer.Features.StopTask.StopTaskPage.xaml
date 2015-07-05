@@ -1,0 +1,118 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:controls="clr-namespace:TaskTimer;assembly=TaskTimer" xmlns:AppConstants="clr-namespace:TaskTimer;assembly=TaskTimer" x:Class="TaskTimer.StopTaskPage" BackgroundColor="#202022" Padding="0,20,0,0">
+	<ContentPage.Content>
+		<Grid RowSpacing="0" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0" ColumnSpacing="0">
+			<Grid.RowDefinitions>
+				<RowDefinition Height="44" />
+				<RowDefinition Height="*" />
+				<RowDefinition Height="Auto" />
+			</Grid.RowDefinitions>
+			<StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="0" Spacing="0">
+				<Grid HorizontalOptions="FillAndExpand">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+					<StackLayout Grid.Column="0" HorizontalOptions="Start" Padding="0" Orientation="Horizontal" Spacing="0">
+						<StackLayout.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding BackCommand}">
+							</TapGestureRecognizer>
+						</StackLayout.GestureRecognizers>
+						<Image Source="iconback.png" Style="{StaticResource BackIcon}" />
+						<Label Text="Back" VerticalOptions="CenterAndExpand" Style="{StaticResource Date}" FontSize="17" />
+					</StackLayout>
+					<StackLayout Grid.Column="1" HorizontalOptions="Center" Orientation="Horizontal">
+						<Label Text="Finalise Transaction" Style="{StaticResource Date}" />
+					</StackLayout>
+					<StackLayout Grid.Column="2" Orientation="Vertical" HorizontalOptions="EndAndExpand" Padding="0,0,15,0">
+						<StackLayout.GestureRecognizers>
+							<TapGestureRecognizer Command="{Binding DeleteTaskCommand}" CommandParameter="true" />
+						</StackLayout.GestureRecognizers>
+						<Image Source="icontrash.png" Style="{StaticResource SettingsIcon}" />
+					</StackLayout>
+				</Grid>
+			</StackLayout>
+			<ScrollView Grid.Row="1" BackgroundColor="#f2f2f2">
+				<StackLayout Orientation="Vertical" VerticalOptions="FillAndExpand" BackgroundColor="#f2f2f2">
+					<StackLayout Orientation="Vertical" Padding="15, 10">
+						<Label Text="{Binding UserTask.ClientName}" Style="{StaticResource ClientName}"  />
+            <Label Text="{Binding UserTask.UsageItemName}"  Style="{StaticResource TaskName}" />
+					</StackLayout>
+					<BoxView Color="#f4a419" HorizontalOptions="Fill" HeightRequest="0.5" />
+					<StackLayout Orientation="Vertical" Padding="15, 10">
+						<Label Text="Requested by" Style="{StaticResource Label}" />
+						<controls:ExtendedEntry Text="{Binding UserTask.RequestedBy}" Style="{StaticResource Entry}" FontSize="13.5" FontFamily="HelveticaNeue-Regular" />
+					</StackLayout>
+					<BoxView Color="#f4a419" HorizontalOptions="Fill" HeightRequest="0.5" />
+					<StackLayout Orientation="Vertical" Padding="15, 0">
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Label Text="Duration" Grid.Row="0" Style="{StaticResource Label}" />
+							<StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Spacing="0" Padding="0" VerticalOptions="FillAndExpand">
+								<Grid HorizontalOptions="CenterAndExpand" VerticalOptions="FillAndExpand">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+										<ColumnDefinition Width="Auto" />
+									</Grid.ColumnDefinitions>
+									<Label Grid.Column="0" Text="Hours" HorizontalOptions="EndAndExpand" VerticalOptions="CenterAndExpand" Style="{StaticResource Label}" />
+									<TimePicker Grid.Column="1" x:Name="DurationPicker" WidthRequest="75" HorizontalOptions="CenterAndExpand" Time="{Binding StopDuration}" Format="HH:mm" />
+									<Label Text="Minutes" Grid.Column="2" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" Style="{StaticResource Label}" />
+								</Grid>
+							</StackLayout>
+							<StackLayout Grid.Row="2" Padding="0,0,0,10" Spacing="0" HorizontalOptions="FillAndExpand" Orientation="Horizontal" IsVisible="{Binding IsAbortedTask}">
+								<Grid HorizontalOptions="FillAndExpand">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<Image Source="iconstoped.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+									<Label Grid.Column="1" Text="{x:Static AppConstants:AppConstants.AbortTaskInfoMessage}" Style="{StaticResource Info}" TextColor="Red" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+								</Grid>
+							</StackLayout>
+							<StackLayout Grid.Row="3"  Padding="0,0,0,10" HorizontalOptions="FillAndExpand" Orientation="Horizontal" VerticalOptions="FillAndExpand">
+								<Grid HorizontalOptions="FillAndExpand">
+									<Grid.ColumnDefinitions>
+										<ColumnDefinition Width="Auto" />
+										<ColumnDefinition Width="*" />
+									</Grid.ColumnDefinitions>
+									<Image Source="iconinfo.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+									<Label Grid.Column="1" LineBreakMode="WordWrap" Text="{x:Static AppConstants:AppConstants.DurationInfoMessage}" Style="{StaticResource Info}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+								</Grid>
+							</StackLayout>
+						</Grid>
+					</StackLayout>
+					<ActivityIndicator x:Name="ActivityIndicator" IsVisible="{Binding IsBusy}" IsRunning="{Binding IsBusy}" Color="Black" HorizontalOptions="Center" />
+					<BoxView Color="#f4a419" HorizontalOptions="Fill" HeightRequest="0.5" />
+					<StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="15, 10">
+						<Label Text="Client-facing notes" Style="{StaticResource Label}" />
+						<controls:ExtendedEditor x:Name="NotesEntry" FontSize="13.5" FontFamily="HelveticaNeue-Regular" HeightRequest="50" Text="{Binding UserTask.Notes}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+					</StackLayout>
+					<StackLayout VerticalOptions="FillAndExpand" Orientation="Vertical" Padding="15, 10">
+						<Label Text="Team member comments" Style="{StaticResource Label}" />
+						<controls:ExtendedEditor x:Name="TeamMeberComments" FontSize="13.5" FontFamily="HelveticaNeue-Regular" HeightRequest="50" Text="{Binding UserTask.TeamMemberComments}" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" />
+					</StackLayout>
+					<StackLayout HorizontalOptions="FillAndExpand" Orientation="Horizontal" Padding="15,0,15,10">
+						<Grid HorizontalOptions="FillAndExpand">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="*" />
+							</Grid.ColumnDefinitions>
+							<Image Source="iconinfo.png" HeightRequest="20" WidthRequest="20" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+							<Label Grid.Column="1" Text="{x:Static AppConstants:AppConstants.TaskInfoMessage}" Style="{StaticResource Info}" HorizontalOptions="StartAndExpand" VerticalOptions="CenterAndExpand" />
+						</Grid>
+					</StackLayout>
+				</StackLayout>
+			</ScrollView>
+			<StackLayout Grid.Row="2" Spacing="0" HorizontalOptions="Fill" Padding="15, 10" BackgroundColor="#2c2e32">
+				<Button Text="Submit" Command="{Binding SaveTaskCommand}" IsEnabled="{Binding IsBusy,Converter={StaticResource cnvInvert}}" Style="{StaticResource SubmitButton}" />
+			</StackLayout>
+		</Grid>
+	</ContentPage.Content>
+</ContentPage>

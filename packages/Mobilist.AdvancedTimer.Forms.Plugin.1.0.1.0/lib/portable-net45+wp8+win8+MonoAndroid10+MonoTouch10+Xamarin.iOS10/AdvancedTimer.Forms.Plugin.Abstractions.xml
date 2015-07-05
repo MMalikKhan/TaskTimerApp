@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>AdvancedTimer.Forms.Plugin.Abstractions</name>
+    </assembly>
+    <members>
+        <member name="T:AdvancedTimer.Forms.Plugin.Abstractions.IAdvancedTimer">
+            <summary>
+            AdvancedTimer Interface
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.Abstractions.IAdvancedTimer.initTimer(System.Int32,System.EventHandler,System.Boolean)">
+            <summary>
+            Used for initializing timer and options
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.Abstractions.IAdvancedTimer.startTimer">
+            <summary>
+            Used for starting timer
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.Abstractions.IAdvancedTimer.stopTimer">
+            <summary>
+            Used for stopping timer
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.Abstractions.IAdvancedTimer.isTimerEnabled">
+            <summary>
+            Used for checking timer status
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.Abstractions.IAdvancedTimer.getInterval">
+            <summary>
+            Used for checking timer interval
+            </summary>
+        </member>
+        <member name="M:AdvancedTimer.Forms.Plugin.Abstractions.IAdvancedTimer.setInterval(System.Int32)">
+            <summary>
+            Used for setting timer interval
+            </summary>
+        </member>
+    </members>
+</doc>

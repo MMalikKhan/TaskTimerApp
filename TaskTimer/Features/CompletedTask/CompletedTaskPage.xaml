@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" Padding="0,20,0,0" BackgroundColor="#202022"
+             x:Class="TaskTimer.CompletedTaskPage">
+  <ContentPage.Content>
+    <Grid RowSpacing="0" HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand" Padding="0" ColumnSpacing="0">
+      <Grid.RowDefinitions>
+        <RowDefinition Height="44" />
+        <RowDefinition Height="40" />
+        <RowDefinition Height="*" />
+      </Grid.RowDefinitions>
+      <StackLayout Orientation="Horizontal" HorizontalOptions="FillAndExpand" Grid.Row="0" Spacing="0" BackgroundColor="Transparent">
+        <Grid HorizontalOptions="FillAndExpand">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="Auto" />
+          </Grid.ColumnDefinitions>
+          <StackLayout Grid.Column="0" HorizontalOptions="Start" Padding="15,0,0,0" Orientation="Horizontal">
+            <Label Text="Today is" Style="{StaticResource Today}"/>
+            <Label Text="{Binding TodayDate}" Style="{StaticResource Date}"/>
+          </StackLayout>
+          <StackLayout Grid.Column="1" Orientation="Vertical" HorizontalOptions="End" Padding="0,0,15,0">
+            <StackLayout.GestureRecognizers>
+              <TapGestureRecognizer Command="{Binding NavigateToSettingsCommand}" />
+            </StackLayout.GestureRecognizers>
+            <Image Source="iconsettings.png" Style="{StaticResource SettingsIcon}" />
+          </StackLayout>
+        </Grid>
+      </StackLayout>
+      <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Padding="15,0,15,0" Spacing="0" BackgroundColor="Transparent">
+        <StackLayout.GestureRecognizers>
+          <TapGestureRecognizer Command="{Binding CloseListCommand}" />
+        </StackLayout.GestureRecognizers>
+        <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="20" />
+          </Grid.ColumnDefinitions>
+          <Label Grid.Column="0" VerticalOptions="CenterAndExpand" Text="Recent Completed Transactions" Style="{StaticResource RecentList}" HorizontalOptions="StartAndExpand" />
+          <Image Source="icondown.png" Style="{StaticResource CompletedListIcon}" Grid.Column="1" />
+        </Grid>
+      </StackLayout>
+
+      <StackLayout Grid.Row="2" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Padding="0" Spacing="0" BackgroundColor="#2c2e32">
+        <ListView x:Name="CompletedTaskListView"   BackgroundColor="#2c2e32" ItemTapped="CompletedTaskListView_OnItemTapped"  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  SeparatorColor="#f2f2f2"   ItemsSource="{Binding CompletedTasksList}"
+                  HasUnevenRows="True">
+          <ListView.ItemTemplate>
+            <DataTemplate>
+              <ViewCell>
+                <ViewCell.View>
+                  <Grid HorizontalOptions="FillAndExpand"   VerticalOptions="FillAndExpand" Padding="0,5" RowSpacing="0">
+                    <Grid.ColumnDefinitions>
+                      <ColumnDefinition Width="*" />
+                      <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Column="0"  Padding="15,5,15,5" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+                      <Label Text="{Binding ClientName}" Style="{StaticResource ClientName-Gray}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                      <Label Text="{Binding UsageItemName}"  Style="{StaticResource TaskName}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand" />
+                      <Label Text="{Binding ElapsedTimeInSeconds,Converter={StaticResource cnvElapedTime}}"  Style="{StaticResource TaskName}" VerticalOptions="CenterAndExpand"
+                             HorizontalOptions="StartAndExpand" />
+                    </StackLayout>
+                    <StackLayout Grid.Column="1" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Padding="5,5,5,5">
+                      <Image Source="iconplus.png" Style="{StaticResource SettingsIcon}"  HorizontalOptions="CenterAndExpand"/>
+                    </StackLayout>
+                  </Grid>
+                </ViewCell.View>
+              </ViewCell>
+            </DataTemplate>
+          </ListView.ItemTemplate>
+        </ListView>
+      </StackLayout>
+
+    </Grid>
+  </ContentPage.Content>
+</ContentPage>

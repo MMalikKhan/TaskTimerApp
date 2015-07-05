@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{52835ADE-5400-4A69-A705-66B9CCCB6D86}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>TaskTimer</RootNamespace>
+    <AssemblyName>TaskTimer</AssemblyName>
+    <TargetFrameworkProfile>Profile78</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'AdHoc|iPhone' ">
+    <Optimize>false</Optimize>
+    <OutputPath>bin\iPhone\AdHoc</OutputPath>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Behaviors\SearchBarTextChanged.cs" />
+    <Compile Include="Converters\TruncateTextConverter.cs" />
+    <Compile Include="Database\DbContext.cs" />
+    <Compile Include="Database\IDbContext.cs" />
+    <Compile Include="Database\IEntity.cs" />
+    <Compile Include="Database\IDbSet.cs" />
+    <Compile Include="Database\ISQLLite.cs" />
+    <Compile Include="Database\DBSet.cs" />
+    <Compile Include="DI\DepndancyResolver.cs" />
+    <Compile Include="Formatters\ClientFacingNotesFormatter.cs" />
+    <Compile Include="Messages\HideLoading.cs" />
+    <Compile Include="Messages\DoLogin.cs" />
+    <Compile Include="DI\SharedModule.cs" />
+    <Compile Include="Features\CreateTask\UsageItems\UsageItemsViewModel.cs" />
+    <Compile Include="Features\CreateTask\UsageItems\UsageItemsPage.xaml.cs">
+      <DependentUpon>UsageItemsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\NavigateToUsageItemsPage.cs" />
+    <Compile Include="Features\Home\HomeViewModel.cs" />
+    <Compile Include="Features\Settings\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Settings\SettingsViewModel.cs" />
+    <Compile Include="Messages\LoginCanceled.cs" />
+    <Compile Include="Modals\Loading.xaml.cs">
+      <DependentUpon>Loading.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CurrentLoggedInUser.cs" />
+    <Compile Include="Security\AuthenticationResult.cs" />
+    <Compile Include="Security\AuthenticationStatus.cs" />
+    <Compile Include="Models\AuthToken.cs" />
+    <Compile Include="Factories\ViewFactory.cs" />
+    <Compile Include="Features\Home\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Welcome\WelcomePage.xaml.cs">
+      <DependentUpon>WelcomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\Welcome\WelcomeViewModel.cs" />
+    <Compile Include="Messages\LoginFailed.cs" />
+    <Compile Include="Messages\LoginSuccess.cs" />
+    <Compile Include="Messages\LogoutSuccess.cs" />
+    <Compile Include="Messages\NavigateBackMessage.cs" />
+    <Compile Include="Messages\NavigateToPageMessage.cs" />
+    <Compile Include="Security\IAuthenticator.cs" />
+    <Compile Include="Security\ITokenProvider.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Security\TokenProvider.cs" />
+    <Compile Include="Constants\UserTaskStatus.cs" />
+    <Compile Include="Models\Transaction.cs" />
+    <Compile Include="Services\ClientContactService.cs" />
+    <Compile Include="Models\Contact.cs" />
+    <Compile Include="Services\IClientContactService.cs" />
+    <Compile Include="Settings\Configurations.cs" />
+    <Compile Include="Messages\ShowLoading.cs" />
+    <Compile Include="ViewModels\BaseListViewModel.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
+    <Compile Include="Logging\Insight.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Services\RestService.cs" />
+    <Compile Include="Settings\Auth0Settings.cs" />
+    <Compile Include="Services\ReferenceDataService.cs" />
+    <Compile Include="Settings\RestEndPoint.cs" />
+    <Compile Include="Models\Client.cs" />
+    <Compile Include="Services\IReferenceDataService.cs" />
+    <Compile Include="Models\UsageItem.cs" />
+    <Compile Include="Converters\InvertBoolenConverter.cs" />
+    <Compile Include="Models\User.cs" />
+    <Compile Include="Services\IUserPreferenceService.cs" />
+    <Compile Include="Services\UserPreferenceService.cs" />
+    <Compile Include="Messages\NavigateToSettingsPage.cs" />
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Constants\ErrorMessages.cs" />
+    <Compile Include="Controls\BindablePicker.cs" />
+    <Compile Include="ViewModels\AppViewModel.cs" />
+    <Compile Include="Models\UserTask.cs" />
+    <Compile Include="Models\UserTaskTime.cs" />
+    <Compile Include="Services\IUserTaskService.cs" />
+    <Compile Include="Services\UserTaskService.cs" />
+    <Compile Include="Features\CreateTask\Clients\ClientsPage.xaml.cs">
+      <DependentUpon>ClientsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CreateTask\Clients\ClientsViewModel.cs" />
+    <Compile Include="Features\Home\UserTaskViewModel.cs" />
+    <Compile Include="Messages\UserTaskStatusChanged.cs" />
+    <Compile Include="Features\StopTask\StopTaskPage.xaml.cs">
+      <DependentUpon>StopTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Messages\TaskCompleted.cs" />
+    <Compile Include="Features\CompletedTask\CompletedTaskPage.xaml.cs">
+      <DependentUpon>CompletedTaskPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Features\CompletedTask\CompletedTaskViewModel.cs" />
+    <Compile Include="Messages\CloseModal.cs" />
+    <Compile Include="Messages\CreateUserTask.cs" />
+    <Compile Include="Converters\ElapsedTimeConverter.cs" />
+    <Compile Include="Messages\NavigateToHomePage.cs" />
+    <Compile Include="Messages\AppEnteredForegroundState.cs" />
+    <Compile Include="Extensions\INavigationExtension.cs" />
+    <Compile Include="Constants\AppConstants.cs" />
+    <Compile Include="Controls\ExtendedEditor.cs" />
+    <Compile Include="Controls\ExtendedEntry.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.5.2\lib\portable-net4+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="bouncy_castle_hmac_sha_pcl">
+      <HintPath>..\packages\BouncyCastle-PCL.1.0.0.6\lib\bouncy_castle_hmac_sha_pcl.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.8\lib\portable-net45+wp80+win8+wpa81+aspnetcore50\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="PubSub">
+      <HintPath>..\packages\PubSub.1.3.0\lib\portable-net45+sl5+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1\PubSub.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLite-net">
+      <HintPath>..\packages\sqlite-net-pcl.1.0.11\lib\portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLite-net.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Extensions">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Primitives">
+      <HintPath>..\packages\Microsoft.Net.Http.2.2.29\lib\portable-net40+sl4+win8+wp71+wpa81\System.Net.Http.Primitives.dll</HintPath>
+    </Reference>
+    <Reference Include="SQLitePCL.raw">
+      <HintPath>..\packages\SQLitePCL.raw_basic.0.8.0\lib\portable-net45+netcore45+wp8+MonoAndroid10+MonoTouch10+Xamarin.iOS10\SQLitePCL.raw.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Insights">
+      <HintPath>..\packages\Xamarin.Insights.1.10.3.111\lib\portable-win+net45+wp80+windows8+wpa+MonoAndroid10+MonoTouch10\Xamarin.Insights.dll</HintPath>
+    </Reference>
+    <Reference Include="XLabs.Core">
+      <HintPath>..\packages\XLabs.Core.2.0.5610.2\lib\portable-net45+netcore45+wp8+MonoAndroid1+MonoTouch1\XLabs.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged">
+      <HintPath>..\packages\PropertyChanged.Fody.1.50.1\Lib\portable-net4+sl4+wp8+win8+wpa81+MonoAndroid16+MonoTouch40\PropertyChanged.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Core">
+      <HintPath>..\packages\Xamarin.Forms.1.4.2.6359\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Xaml">
+      <HintPath>..\packages\Xamarin.Forms.1.4.2.6359\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Xaml.dll</HintPath>
+    </Reference>
+    <Reference Include="Xamarin.Forms.Platform">
+      <HintPath>..\packages\Xamarin.Forms.1.4.2.6359\lib\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.Platform.dll</HintPath>
+    </Reference>
+    <Reference Include="ExifLib">
+      <HintPath>..\packages\ExifLib.PCL.1.0.1\lib\portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10\ExifLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+    <None Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Features\Home\HomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\Welcome\WelcomePage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="App.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CreateTask\Clients\ClientsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\StopTask\StopTaskPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Features\CompletedTask\CompletedTaskPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Features\CreateTask\UsageItems\UsageItemsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>
+      </SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Features\Settings\SettingsPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.4.2.6359\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
+  <Target Name="EnsureBclBuildImported" BeforeTargets="BeforeBuild" Condition="'$(BclBuildImported)' == ''">
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=317567." HelpKeyword="BCLBUILD2001" />
+    <Error Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.14\tools\Microsoft.Bcl.Build.targets')" Text="The build restored NuGet packages. Build the project again to include these packages in the build. For more information, see http://go.microsoft.com/fwlink/?LinkID=317568." HelpKeyword="BCLBUILD2002" />
+  </Target>
+  <Import Project="..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets" Condition="Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" />
+  <Import Project="..\packages\Fody.1.28.3\build\Fody.targets" Condition="Exists('..\packages\Fody.1.28.3\build\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Bcl.Build.1.0.21\build\Microsoft.Bcl.Build.targets'))" />
+  </Target>
+  <Target Name="BeforeBuild">
+    <!-- Remove obj folder -->
+    <RemoveDir Directories="$(BaseIntermediateOutputPath)" />
+    <!-- Remove bin folder -->
+    <RemoveDir Directories="$(BaseOutputPath)" />
+  </Target>
+  <ItemGroup>
+    <Folder Include="Utilities\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Modals\Loading.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

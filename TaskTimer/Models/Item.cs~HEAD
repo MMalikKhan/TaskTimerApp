@@ -1,0 +1,27 @@
+﻿using System;
+using TaskTimer.Database;
+
+namespace TaskTimer
+{
+	public class Item : IEntity
+	{
+		public string LocationID {
+			get;
+			set;
+		}
+		public string ItemID {
+			get;
+			set;
+		}
+		public string ItemDescription {
+			get;
+			set;
+		}
+
+		public object GetIdentifier()
+		{
+			return ItemID;
+		}
+	}
+}
+
